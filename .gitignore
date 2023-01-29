@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # webpack build folder
-build
+/build
