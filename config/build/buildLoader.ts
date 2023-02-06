@@ -9,6 +9,17 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
   }
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const assetsLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    type: 'asset/resource'
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -27,6 +38,8 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   }
 
   return [
+    assetsLoader,
+    svgLoader,
     typescriptLoader,
     cssLoader,
   ]
