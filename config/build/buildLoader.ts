@@ -18,7 +18,7 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         options: {
           modules: {
             auto: (resPath: string) => resPath.includes('.module.'),
-            localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
+            localIdentName: isDev ? '[path][name]__[local]-[hash:base64:5]' : '[hash:base64:8]'
           },
         }
       },
