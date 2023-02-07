@@ -4,6 +4,9 @@
   background: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s, background 0.7s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .collapsed {
@@ -14,6 +17,7 @@
   position: absolute;
   bottom: 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }

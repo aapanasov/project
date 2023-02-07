@@ -4,7 +4,8 @@ import cls from './Button.module.scss';
 
 
 export const enum ThemeButton {
-  CLEAR = 'clear'
+  CLEAR = 'clear',
+  OUTLINED = 'outlined'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
