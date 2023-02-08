@@ -7,18 +7,18 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
-  }
+  };
 
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
-  }
+  };
 
   const assetsLoader = {
     test: /\.(png|jpe?g|gif)$/i,
-    type: 'asset/resource'
-  }
+    type: 'asset/resource',
+  };
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
@@ -29,18 +29,18 @@ export default function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         options: {
           modules: {
             auto: (resPath: string) => resPath.includes('.module.'),
-            localIdentName: isDev ? '[path][name]__[local]-[hash:base64:5]' : '[hash:base64:8]'
+            localIdentName: isDev ? '[path][name]__[local]-[hash:base64:5]' : '[hash:base64:8]',
           },
-        }
+        },
       },
-      "sass-loader",
+      'sass-loader',
     ],
-  }
+  };
 
   return [
     assetsLoader,
     svgLoader,
     typescriptLoader,
     cssLoader,
-  ]
+  ];
 }
