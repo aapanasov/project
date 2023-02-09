@@ -1,4 +1,9 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -6,7 +11,9 @@
   ],
 
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": "latest"
   },
 
   "plugins": [ "i18next" ],
@@ -19,6 +26,7 @@
     "react/function-component-definition": "off",
     "no-unused-vars": "warn",
     "react/jsx-props-no-spreading": "warn",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "max-len": [ "error", { "ignoreComments": true, "code": 100 } ]
   }
 }

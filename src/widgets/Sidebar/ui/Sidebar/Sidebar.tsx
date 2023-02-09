@@ -17,7 +17,11 @@ export const Sidebar: FC<SidebarProps> = (props) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <div
+      className={
+        classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])
+      }
+    >
       <Button
         onClick={onToggle}
         theme={ThemeButton.OUTLINED}
