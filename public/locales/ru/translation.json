@@ -5,5 +5,7 @@
   "Main": "Главная",
   "About": "О сайте",
   "Toggle": "Toggle",
-  "Page Not Found": "Страница не найдена"
+  "Page Not Found": "Страница не найдена",
+  "Something went wrong": "Видимо что-то случилось",
+  "Refresh page": "Обновить страницу"
 }
