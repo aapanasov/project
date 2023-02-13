@@ -1,8 +1,10 @@
+import path from 'path';
+
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
-  moduleDirectories: ['node_modules'],
+  moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -22,9 +24,16 @@ export default {
 
   preset: 'ts-jest',
   transform: {
-    '^.+\\.ts?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
+
+  moduleNameMapper: {
+    '\\.(css|less|scss)$': 'identity-obj-proxy',
+    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
+
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
   /*
  * For a detailed explanation regarding each configuration property and type check, visit:

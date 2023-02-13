@@ -28,7 +28,6 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "react/jsx-props-no-spreading": "warn",
     "no-underscore-dangle": "off",
-    "max-len": [ "error", { "ignoreComments": true, "code": 100 } ],
-    "i18next/no-literal-string": "warn"
+    "max-len": [ "error", { "ignoreComments": true, "code": 100 } ]
   }
 }
