@@ -3,21 +3,49 @@
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
   position: relative;
-  transition: width 0.3s, background 0.7s;
+  transition: width 0.4s, background 0.7s;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
+  // align-items: center;
 }
 
 .switchers {
   position: absolute;
   bottom: 24px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   width: 100%;
+}
+
+.collapseBtn {
+  position: absolute;
+  right: -28px;
+  bottom: 48px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
 }
