@@ -106,3 +106,4 @@ dist
 # webpack build folder
 /build
 .vscode
+storybook-static
