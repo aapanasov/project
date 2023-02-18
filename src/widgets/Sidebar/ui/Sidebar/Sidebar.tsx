@@ -7,6 +7,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwither';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import MainIcon from 'shared/assets/icons/home.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -42,7 +43,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
           <MainIcon className={cls.icon} />
           <AppLink
             theme={AppLinkTheme.SECONDARY}
-            to="/"
+            to={RoutePath.main}
             className={cls.mainLink}
           >
             {t('Main')}
@@ -52,7 +53,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
         <div className={cls.item}>
           <AboutIcon className={cls.icon} />
           <AppLink
-            to="/about"
+            to={RoutePath.about}
             theme={AppLinkTheme.SECONDARY}
           >
             {t('About')}
