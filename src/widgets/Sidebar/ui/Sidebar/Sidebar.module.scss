@@ -27,17 +27,22 @@
   display: flex;
   flex-direction: column;
   margin-left: 24px;
-  gap: 12px;
+  gap: 16px;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 .icon {
   fill: var(--inverted-primary-color);
+}
+
+.link {
+  transition: opacity 0.3s;
+  white-space: nowrap;
 }
 
 .collapsed {
@@ -45,5 +50,10 @@
 
   .switchers {
     flex-direction: column;
+  }
+
+  .link {
+    opacity: 0;
+    width: 0;
   }
 }

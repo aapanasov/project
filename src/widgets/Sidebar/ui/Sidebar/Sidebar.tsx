@@ -39,26 +39,23 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       </Button>
 
       <div className={cls.items}>
-        <div className={cls.item}>
+        <AppLink
+          theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.main}
+          className={cls.item}
+        >
           <MainIcon className={cls.icon} />
-          <AppLink
-            theme={AppLinkTheme.SECONDARY}
-            to={RoutePath.main}
-            className={cls.mainLink}
-          >
-            {t('Main')}
-          </AppLink>
-        </div>
+          <span className={cls.link}>{t('Main')}</span>
+        </AppLink>
 
-        <div className={cls.item}>
+        <AppLink
+          to={RoutePath.about}
+          theme={AppLinkTheme.SECONDARY}
+          className={cls.item}
+        >
           <AboutIcon className={cls.icon} />
-          <AppLink
-            to={RoutePath.about}
-            theme={AppLinkTheme.SECONDARY}
-          >
-            {t('About')}
-          </AppLink>
-        </div>
+          <span className={cls.link}>{t('About')}</span>
+        </AppLink>
       </div>
 
       <div className={cls.switchers}>
