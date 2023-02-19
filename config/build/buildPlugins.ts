@@ -17,7 +17,7 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): WebpackPlu
     new DefinePlugin({ IS_DEV: JSON.stringify(isDev) }),
   ];
 
-  if (isDev) {
+  if (!isDev) {
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
 
