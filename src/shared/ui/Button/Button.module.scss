@@ -2,14 +2,19 @@
   cursor: pointer;
   color: var(--primary-color);
   padding: 6px 12px;
-  background: none;
   transition: background 0.7s;
   border-radius: 4px;
+  background: none;
 }
 
-.clear {
+.clear,
+.clearInverted {
   border: none;
   outline: none;
+}
+
+.clearInverted {
+  color: var(--inverted-primary-color);
 }
 
 .outlined {
