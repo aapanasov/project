@@ -1,9 +1,12 @@
 import path from 'path';
 
 export default {
+  globals: { IS_DEV: true },
+
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  rootDir: '../../',
   moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: [
     'js',
@@ -15,7 +18,6 @@ export default {
     'json',
     'node',
   ],
-  rootDir: '../../',
   testMatch: [
     '**/__tests__/**/*.[jt]s?(x)',
     '**/?(*.)+(spec|test).[tj]s?(x)',
