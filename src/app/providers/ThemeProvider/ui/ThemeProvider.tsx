@@ -7,6 +7,7 @@ import {
 
 const defaultTheme = localStorage
   .getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+document.body.className = defaultTheme;
 
 interface ThemeProviderProps {
   initialTheme?: Theme
