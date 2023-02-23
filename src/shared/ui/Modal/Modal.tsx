@@ -10,6 +10,7 @@ interface ModalProps {
   children?: ReactNode
   isOpen?: boolean
   onClose?: () => void
+  lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -18,17 +19,26 @@ export const Modal: FC<ModalProps> = (props) => {
     children,
     isOpen,
     onClose,
+    lazy,
   } = props;
 
   const ANIMATION_DELAY = 300;
 
   const [isClosing, setIsClosing] = useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const [isOpening, setIsOpening] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
-      timeRef.current = setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
       }, ANIMATION_DELAY);
@@ -47,19 +57,27 @@ export const Modal: FC<ModalProps> = (props) => {
 
   useEffect(() => {
     if (isOpen) {
+      timerRef.current = setTimeout(() => {
+        setIsOpening(true);
+      }, 0);
       window.addEventListener('keydown', onKeyDown);
     }
 
     return () => {
-      clearTimeout(timeRef.current);
+      setIsOpening(false);
+      clearTimeout(timerRef.current);
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
 
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

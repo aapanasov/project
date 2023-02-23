@@ -9,5 +9,7 @@
   "Page Not Found": "Page Not Found",
   "Something went wrong": "Something went wrong",
   "Refresh page": "Refresh page",
-  "Enter": "Enter"
+  "Enter": "Enter",
+  "login": "login",
+  "password": "password"
 }
