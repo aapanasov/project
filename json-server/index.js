@@ -26,12 +26,12 @@ server.post('/login', (req, res) => {
     const db = JSON.parse(fs.readFileSync(dbFilePath, 'UTF-8'));
     const { users = [] } = db;
 
-    const userFromBd = users.find(
-      (user) => user.username === username && user.password === password,
+    const userFromDB = users.find(
+      (user) => (user.username === username) && (user.password === password),
     );
 
-    if (userFromBd) {
-      return res.json(userFromBd);
+    if (userFromDB) {
+      return res.json(userFromDB);
     }
 
     return res.status(403).json({ message: 'User not found' });

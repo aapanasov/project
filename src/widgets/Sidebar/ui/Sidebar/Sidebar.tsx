@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwither';
 import AboutIcon from 'shared/assets/icons/about.svg';
@@ -30,7 +30,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       <Button
         data-testid="sidebar-toggle"
         onClick={onToggle}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
+        variant={ButtonVariant.BACKGROUND_INVERTED}
         className={cls.collapseBtn}
         square
         size={ButtonSize.L}

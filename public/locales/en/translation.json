@@ -11,5 +11,9 @@
   "Refresh page": "Refresh page",
   "Enter": "Enter",
   "login": "login",
-  "password": "password"
+  "password": "password",
+  "Authorization": "Authorization",
+  "Wrong login or password": "Wrong login or password",
+  "Logout": "Logout"
+
 }
