@@ -19,5 +19,10 @@ Primary.decorators = [StoreDecorator({
   loginForm: { username: 'user', password: '123' },
 })];
 
+export const WithError = Template.bind({});
+WithError.decorators = [StoreDecorator({
+  loginForm: { username: 'user', password: '123', error: 'Wrong login or password' },
+})];
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

@@ -25,4 +25,4 @@ Dark.args = {
   children: lorem,
   isOpen: true,
 };
-Dark.decotators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

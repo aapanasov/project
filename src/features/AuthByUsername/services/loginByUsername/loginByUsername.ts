@@ -8,6 +8,11 @@ interface LoginByUsernameProps {
   password: string
 }
 
+const enum LoginError {
+  INCORRECT_DATA = '',
+  SERVER_ERROR = '',
+}
+
 const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
   'login/loginByUsername',
   async (authData, thunkAPI) => {
