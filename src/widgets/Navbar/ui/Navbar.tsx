@@ -30,30 +30,16 @@ export function Navbar({ className }: NavbarProps) {
     setIsAuthModal(false);
   }, [dispatch]);
 
-  if (authData) {
-    return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
-        <Button
-          className={cls.links}
-          variant={ButtonVariant.CLEAR_INVERTED}
-          onClick={onLogout}
-        >
-          {t('Logout')}
-        </Button>
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <Button
         className={cls.links}
         variant={ButtonVariant.CLEAR_INVERTED}
-        onClick={onModalOpen}
+        onClick={authData ? onLogout : onModalOpen}
       >
-        {t('Enter')}
+        {t(authData ? 'Logout' : 'Enter')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onModalClose} />
+      <LoginModal isOpen={!authData && isAuthModal} onClose={onModalClose} />
     </div>
   );
 }
