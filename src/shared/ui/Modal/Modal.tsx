@@ -45,17 +45,15 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [onClose]);
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
-
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
   useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeHandler();
+    };
+
     if (isOpen) {
       timerRef.current = setTimeout(() => {
         setIsOpening(true);
@@ -68,7 +66,7 @@ export const Modal: FC<ModalProps> = (props) => {
       clearTimeout(timerRef.current);
       window.removeEventListener('keydown', onKeyDown);
     };
-  }, [isOpen, onKeyDown]);
+  }, [closeHandler, isOpen]);
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpening,
